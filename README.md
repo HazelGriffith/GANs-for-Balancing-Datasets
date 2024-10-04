@@ -10,8 +10,9 @@ Read our project proposal to know our overall plan
 - Train Naive Bayes classifier on unbalanced data
 - Train KNN classifier on unbalanced data
 - Train Neural Network classifier on unbalanced data
-- Investigate methods for converting the tabular data to image representations
-- Convert tabular data to pictorial representations
+- Investigate methods for converting the tabular data to image representations X
+- Generate pictorial data with DeepInsight method X
+- Generate pictorial data with IGTD method 
 - Train Vision Transformer on unbalanced pictorial data
 - Train ResNet on unbalanced pictorial data
 
