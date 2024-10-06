@@ -16,7 +16,6 @@ validation_data = pd.read_csv("../../Data/TabData/Validation.csv")
 validation_ids = np.expand_dims(validation_data['ID'].to_numpy(), axis=1)
 validation_data = validation_data.drop(labels='ID',axis=1).to_numpy()
 
-
 mlp = MLPClassifier(hidden_layer_sizes=[66,21],activation='relu',solver='adam',learning_rate='adaptive',learning_rate_init=1e-2,random_state=42,early_stopping=True)
 
 mlp.fit(training_data, training_labels)
