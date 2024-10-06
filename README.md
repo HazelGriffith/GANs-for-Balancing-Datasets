@@ -9,7 +9,7 @@ Read our project proposal to know our overall plan
 ## Current Tasks
 - Train Naive Bayes classifier on unbalanced data X
 - Train KNN classifier on unbalanced data
-- Train Neural Network classifier on unbalanced data
+- Train Neural Network classifier on unbalanced data X
 - Investigate methods for converting the tabular data to image representations X
 - Generate pictorial data with DeepInsight method X
 - Generate pictorial data with IGTD method 
