@@ -19,7 +19,7 @@ param_grid = [{'hidden_layer_sizes':([70,17],[71,16],[72,15],[73,14],[74,13],[69
                'learning_rate_init':(1e-3,1e-1,1e-2)
              }]
 
-gscv = GridSearchCV(mlp, param_grid, n_jobs=4)
+gscv = GridSearchCV(mlp, param_grid, n_jobs=4, scoring='neg_root_mean_squared_error')
 gscv.fit(training_data,training_labels)
 print(gscv.best_params_)
 print(gscv.best_score_)

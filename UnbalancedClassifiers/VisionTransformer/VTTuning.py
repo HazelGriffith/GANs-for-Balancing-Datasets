@@ -103,11 +103,9 @@ def create_vit_classifier(hp):
     hp_learningRate = hp.Float('learning_rate', min_value=1e-4, max_value=1e-2, step=10, sampling='log')
     hp_weightDecay = hp.Float('weight_decay', min_value=1e-5, max_value=1e-3, step=10, sampling='log')
     model.compile(
-        loss=keras.losses.BinaryCrossentropy(),
+        loss='mean_squared_error',
         optimizer=keras.optimizers.Adam(learning_rate=hp_learningRate, weight_decay=hp_weightDecay),
-        metrics=[
-            keras.metrics.BinaryAccuracy(name="acc"),
-        ],
+        metrics=['root_mean_squared_error'],
     )
     return model
 
@@ -141,7 +139,7 @@ validation_labels = training_labels[:validation_size]
 
 
 #Tuning the model with Hyperband
-tuner = kt.Hyperband(create_vit_classifier, objective='val_acc', directory="/TuningResults/", overwrite=True, factor=25)
+tuner = kt.Hyperband(create_vit_classifier, objective='val_root_mean_squared_error', directory="/TuningResults/", overwrite=True)
 callbacks = [
     keras.callbacks.EarlyStopping(monitor="val_loss", patience=2, restore_best_weights=True),
     ]
