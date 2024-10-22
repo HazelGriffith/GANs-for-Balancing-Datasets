@@ -12,4 +12,4 @@ df = pd.read_csv("../../Data/TabData/Train.csv")
 
 model = IGTD(scale=[12,12]) 
 
-model.generateImages(df, 'TestImages')
+model.generateImages(df, 'Images')
