@@ -12,7 +12,7 @@ Read our project proposal to know our overall plan
 - Train Neural Network classifier on unbalanced data X
 - Investigate methods for converting the tabular data to image representations X
 - Generate pictorial data with DeepInsight method X
-- Generate pictorial data with IGTD method 
+- Generate pictorial data with IGTD method X
 - Train Vision Transformer on unbalanced pictorial data
 - Train ResNet on unbalanced pictorial data
 
