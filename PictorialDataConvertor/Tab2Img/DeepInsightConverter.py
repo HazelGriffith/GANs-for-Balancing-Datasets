@@ -18,5 +18,5 @@ training_data = loaded_data.drop(labels='Label', axis=1).to_numpy()
 model = Tab2Img()
 images = model.fit_transform(training_data, training_labels)
 for i in range(len(images)):
-    image = Image.fromarray(images[i]).convert('L').resize((64,64))
-    image.save("../../Data/PictData/DeepInsight/sample"+str(i+1)+".jpeg", "JPEG")
+    image = Image.fromarray(images[i]).convert('I').resize((64,64))
+    image.save("../../Data/PictData/DeepInsight/sample"+str(i+1)+".png", 'PNG')
