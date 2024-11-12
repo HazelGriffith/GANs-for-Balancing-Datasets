@@ -11,12 +11,12 @@ import numpy as np
 import pandas as pd
 from PIL import Image
 
-loaded_data = pd.read_csv("../../Data/TabData/Train.csv")
-training_labels = loaded_data['Label'].tolist()
-training_data = loaded_data.drop(labels='Label', axis=1).to_numpy()
+loaded_data = pd.read_csv("../../Data/TabData/Validation.csv")
+training_labels = loaded_data['ID'].tolist()
+training_data = loaded_data.drop(labels='ID', axis=1).to_numpy()
 
 model = Tab2Img()
 images = model.fit_transform(training_data, training_labels)
 for i in range(len(images)):
-    image = Image.fromarray(images[i]).convert('I').resize((64,64))
-    image.save("../../Data/PictData/DeepInsight/sample"+str(i+1)+".png", 'PNG')
+    image = Image.fromarray(images[i]).convert('I').resize((16,16))
+    image.save("../../Data/PictData/DeepInsight/Validation/sample"+str(i+1)+".png", 'PNG')

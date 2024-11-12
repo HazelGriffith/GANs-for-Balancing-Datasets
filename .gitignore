@@ -1,3 +1,5 @@
 
 *.ini
 *.bak
+UnbalancedClassifiers/VisionTransformer/Saved_Models/UnbViT_model.keras
+/GANModels/DCGAN/DIModel/runs
