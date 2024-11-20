@@ -10,6 +10,6 @@ import pandas as pd
 
 df = pd.read_csv("../../Data/TabData/Train.csv")
 
-model = IGTD(scale=[12,12]) 
+model = IGTD(scale=[16,16]) 
 
 model.generateImages(df, 'Images')
