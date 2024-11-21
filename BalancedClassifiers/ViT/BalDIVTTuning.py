@@ -27,14 +27,17 @@ class DIDataset(Dataset):
         self.target_transform = target_transform
         
     def __len__(self):
-        return 4465
+        return 6000
         
     def __getitem__(self, idx):
         if (idx < 1465):
             image_path = "../../Data/PictData/DeepInsight/malign/sample"+str(idx+1)+".png"
             label = np.ones(1, dtype=np.int8)
+        elif (idx < 3000):
+            image_path = "../../Data/PictData/DeepInsight/CTGANMalignSynthData/sample"+str(idx-1464)+".png"
+            label = np.ones(1, dtype=np.int8)
         else:
-            image_path = "../../Data/PictData/DeepInsight/benign/sample"+str(idx-1464)+".png"
+            image_path = "../../Data/PictData/DeepInsight/benign/sample"+str(idx-2999)+".png"
             label = np.zeros(1, dtype=np.int8)
         image = decode_image(image_path).type(torch.FloatTensor)
         if self.transform:
@@ -44,7 +47,7 @@ class DIDataset(Dataset):
     
 def fetchDataLoaders():
     data = DIDataset()
-    targets = np.concatenate((np.ones(1465, dtype=np.int8),np.zeros(3000, dtype=np.int8)), axis=0, dtype=np.int8)
+    targets = np.concatenate((np.ones(3000, dtype=np.int8),np.zeros(3000, dtype=np.int8)), axis=0, dtype=np.int8)
     trainInd, valInd,trainTargets,valTargets = train_test_split(
         range(data.__len__()),
         targets,
@@ -205,15 +208,15 @@ model = create_vit_classifier(best_hps)
 history = model.fit(
     training_dataloader,
     batch_size=batch_size,
-    epochs=500,
+    epochs=300,
     validation_data=validation_dataloader,
     callbacks=callbacks,
 )
         
-model.save("Saved_Models/UnbViT_model.keras")
+model.save("Saved_Models/BalDIViT_model.keras")
         
 hist_df = pd.DataFrame(history.history)
-hist_df.to_csv("Saved_Models/UnbViT_model.csv", sep=',')
+hist_df.to_csv("Saved_Models/BalDIViT_model.csv", sep=',')
 print(best_hps.get('transformer_layers'))
 print(best_hps.get('number_of_heads'))
 print(best_hps.get('weight_decay'))
