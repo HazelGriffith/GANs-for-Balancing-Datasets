@@ -7,12 +7,5 @@ Details on the challenge can be found here: https://www.kaggle.com/competitions/
 Read our project proposal to know our overall plan
 
 ## Current Tasks
-- Train Naive Bayes classifier on unbalanced data X
-- Train KNN classifier on unbalanced data X
-- Train Neural Network classifier on unbalanced data X
-- Investigate methods for converting the tabular data to image representations X
-- Generate pictorial data with DeepInsight method X
-- Generate pictorial data with IGTD method X
-- Train Vision Transformer on unbalanced pictorial data
-- Train ResNet on unbalanced pictorial data
+- Complete!
 
