@@ -17,7 +17,7 @@ print(f"Using device: {device}")
 import numpy as np
 import itertools
 
-import torchvision.transforms as transforms #different
+import torchvision.transforms as transforms 
 
 import torch.nn as nn
 import torch.nn.functional as F
@@ -27,7 +27,7 @@ def set_seed(seed):
     torch.manual_seed(seed)
     if torch.cuda.is_available():
         torch.cuda.manual_seed(seed)
-        torch.cuda.manual_seed_all(seed)  # for multi-GPU setups
+        torch.cuda.manual_seed_all(seed)  
 
 set_seed(2024)
 
